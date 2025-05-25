@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 def indexpage(request):
-    return render(request,"index.html",{})
+    return render(request,"index.html",{"is_index":True})
 
 def homepage(request):
     return render(request,'homepage.html',{})

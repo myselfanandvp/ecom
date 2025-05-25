@@ -9,12 +9,25 @@
   <link rel="stylesheet" href="{% static 'usermanagement/css/style.css'%}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{% static 'usermanagement/bootstrap-5.3.6-dist/css/bootstrap.min.css' %}">
-  <title>Home</title>
+  <title>Index page</title>
 </head>
 
 <body>
 
   {%include 'navbar.html'%}
+
+  {%if is_index%}
+
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="w-100 h-auto" src="{%static '/usermanagement/images/banners/E-commerce-Facebook-Cover-Design-Template-1180x664.jpg'%}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+
+
+  {%endif%}
 
   {% block content%}
   {%endblock%}
