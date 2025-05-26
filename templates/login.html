@@ -1,47 +1,39 @@
 {%extends 'index.html' %}
 
 {%block content%}
-<div class="d-flex justify-content-center align-content-center w-100 h-100 my-2">
 
-    <form class="container w-25" method="post">
-           {% csrf_token %}
+<div class="row justify-content-center align-content-center">
+  
+      <form method="post" class="col-10  col-lg-6">
+        {% csrf_token %}
         <!-- Email input -->
         <div data-mdb-input-init class="form-outline mb-4">
-            <input name="emailid" type="email"  class="form-control" />
-            <label class="form-label" for="form2Example1">Email address</label>
+          <input name="emailid" type="email" class="form-control" required />
+          <label class="form-label" for="form2Example1">Email address</label>
         </div>
 
         <!-- Password input -->
         <div data-mdb-input-init class="form-outline mb-4">
-            <input name="password" type="password" class="form-control" />
-            <label class="form-label" for="form2Example2">Password</label>
+          <input name="password" type="password" class="form-control" required/>
+          <label class="form-label" for="form2Example2">Password</label>
         </div>
 
-
         <!-- Submit button -->
-        <button type="submit" data-mdb-button-init data-mdb-ripple-init class=" w-100 btn btn-primary btn-block mb-4">Login</button>
+        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="w-100 btn btn-primary btn-block mb-4">Login</button>
 
         <!-- Register buttons -->
         <div class="text-center">
-            <p>Not a member? <a href="{% url 'signuppage'%}">Register</a></p>
-            <p>or sign up with:</p>
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fa fa-facebook-f"></i>
-            </button>
-
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fa fa-google"></i>
-            </button>
-
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fa fa-twitter"></i>
-            </button>
-
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fa fa-github"></i>
-            </button>
+          <p>Not a member? <a href="{% url 'signuppage'%}">Register</a></p>
+          <p>or sign up with:</p>
+          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-facebook-f"></i></button>
+          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-google"></i></button>
+          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-twitter"></i></button>
+          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-github"></i></button>
         </div>
-    </form>
+      </form>
+
 </div>
+
+
 
 {%endblock%}

@@ -3,25 +3,26 @@
 
 {%block content%}
 
-<div class="d-flex justify-content-center align-content-center w-100 h-100 my-2">
-    <form class="container w-25" method="post">
+<div class="row justify-content-center align-content-center">
+  
+      <form method="post" class="col-10 col-md-6">
          {% csrf_token %}
         <!-- Email input -->
         <div data-mdb-input-init class="form-outline mb-4">
-            <input name="emailid" type="email"  class="form-control" />
+            <input name="emailid" type="email"  class="form-control" required />
             <label class="form-label" for="form2Example1">Email address</label>
         </div>
 
           <!--  input -->
         <div data-mdb-input-init class="form-outline mb-4">
-            <input name="phonenumber" type="text"  class="form-control" />
+            <input name="phonenumber" type="text"  class="form-control" placeholder="Eg : 081 222 2224"  pattern="[0-9]{10}" required/>
             <label class="form-label" for="form2Example1">Phone number</label>
         </div>
 
 
         <!-- Password input -->
         <div data-mdb-input-init class="form-outline mb-4">
-            <input name="password" type="password"  class="form-control" />
+            <input name="password" type="password"  class="form-control"  required/>
             <label class="form-label" for="form2Example2">Password</label>
         </div>
 
@@ -51,5 +52,6 @@
             </button>
         </div>
     </form>
+
 </div>
 {%endblock%}
