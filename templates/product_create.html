@@ -1,0 +1,33 @@
+{%extends 'index.html'%}
+{%load static%}
+
+{%block content%}
+
+
+<div class="row justify-content-center align-content-center">
+    <p class="h4 text-center">Create Product</p>
+    <form method="post" class="col-10  col-lg-6" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+        <!-- input section -->
+        {%for fields in productform %}
+        <div data-mdb-input-init class="form-outline mb-4">
+            {{fields}}
+            {{fields.label_tag}}
+            {%if fields.errors%}
+            <div class="alert alert-danger" role="alert">{{fields.errors}}</div>
+            {%endif%}
+        </div>
+        {%endfor%}
+        <!-- input section end -->
+
+        <!-- Submit button -->
+        <button type="submit" data-mdb-button-init data-mdb-ripple-init
+            class="w-100 btn btn-primary btn-block mb-4">Create Product</button>
+    </form>
+
+</div>
+
+
+{%endblock%}

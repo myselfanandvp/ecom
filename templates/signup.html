@@ -1,39 +1,37 @@
-{%extends 'index.html'%} 
+{%extends 'index.html'%}
 
 
 {%block content%}
 
+<!-- signup form  start -->
 <div class="row justify-content-center align-content-center">
-  
-      <form method="post" class="col-10 col-md-6">
-         {% csrf_token %}
-        <!-- Email input -->
+    <form method="post" class="col-10 col-md-6">
+        {% csrf_token %}
+
+
+        <!-- user fields start  -->
+        {% for fields in form %}
         <div data-mdb-input-init class="form-outline mb-4">
-            <input name="emailid" type="email"  class="form-control" required />
-            <label class="form-label" for="form2Example1">Email address</label>
+            {{fields}}
+            <label class="form-label" for="form2Example1">{{fields.label_tag}}</label>
+            {%if fields.errors%}
+            <div class="alert alert-danger" role="alert">{{fields.errors}}</div>
+            
+            {%endif%}
         </div>
+        {%endfor%}
+        <div class="alert" id="custom_errors" role="alert"></div>
 
-          <!--  input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-            <input name="phonenumber" type="text"  class="form-control" placeholder="Eg : 081 222 2224"  pattern="[0-9]{10}" required/>
-            <label class="form-label" for="form2Example1">Phone number</label>
-        </div>
+        <!-- user fields end  -->
 
-
-        <!-- Password input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-            <input name="password" type="password"  class="form-control"  required/>
-            <label class="form-label" for="form2Example2">Password</label>
-        </div>
-
-        
         <!-- Submit button -->
-        <button type="submit"  data-mdb-button-init data-mdb-ripple-init class="w-100 btn btn-primary btn-block mb-4">Sign
+        <button type="submit" data-mdb-button-init data-mdb-ripple-init
+            class="w-100 btn btn-primary btn-block mb-4">Sign
             up</button>
 
         <!-- Register buttons -->
         <div class="text-center">
-            <p>Is a  member? <a href="{%url 'loginpage'%}">Login</a></p>
+            <p>Is a member? <a href="{%url 'loginpage'%}">Login</a></p>
             <p>or sign up with:</p>
             <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
                 <i class="fa fa-facebook-f"></i>
@@ -54,4 +52,8 @@
     </form>
 
 </div>
+
+<!-- end form -->
+
+
 {%endblock%}

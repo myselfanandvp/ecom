@@ -3,34 +3,37 @@
 {%block content%}
 
 <div class="row justify-content-center align-content-center">
-  
-      <form method="post" class="col-10  col-lg-6">
-        {% csrf_token %}
-        <!-- Email input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-          <input name="emailid" type="email" class="form-control" required />
-          <label class="form-label" for="form2Example1">Email address</label>
-        </div>
 
-        <!-- Password input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-          <input name="password" type="password" class="form-control" required/>
-          <label class="form-label" for="form2Example2">Password</label>
-        </div>
+  <form method="post" class="col-10  col-lg-6">
+    {% csrf_token %}
 
-        <!-- Submit button -->
-        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="w-100 btn btn-primary btn-block mb-4">Login</button>
 
-        <!-- Register buttons -->
-        <div class="text-center">
-          <p>Not a member? <a href="{% url 'signuppage'%}">Register</a></p>
-          <p>or sign up with:</p>
-          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-facebook-f"></i></button>
-          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-google"></i></button>
-          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-twitter"></i></button>
-          <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-github"></i></button>
-        </div>
-      </form>
+    <!-- input section -->
+    {%for fields in loginform %}
+    <div data-mdb-input-init class="form-outline mb-4">
+      {{fields}}
+      {{fields.label_tag}}
+      {%if fields.errors%}
+      <div class="alert alert-danger" role="alert">{{fields.errors}}</div>
+      {%endif%}
+    </div>
+    {%endfor%}
+    <!-- input section end -->
+
+    <!-- Submit button -->
+    <button type="submit" data-mdb-button-init data-mdb-ripple-init
+      class="w-100 btn btn-primary btn-block mb-4">Login</button>
+
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="{% url 'signuppage'%}">Register</a></p>
+      <p>or sign up with:</p>
+      <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-facebook-f"></i></button>
+      <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-google"></i></button>
+      <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-twitter"></i></button>
+      <button type="button" class="btn btn-link btn-floating mx-1"><i class="fa fa-github"></i></button>
+    </div>
+  </form>
 
 </div>
 

@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usermanagement.apps.UsermanagementConfig',
+    'products.apps.ProductsConfig'
   
 ]
 
-# AUTH_USER_MODEL = 'usermanagement.Customuser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,7 +126,16 @@ STATICFILES_DIRS=[
     BASE_DIR/"static",
 ]
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+AUTH_USER_MODEL = 'usermanagement.Customuser'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

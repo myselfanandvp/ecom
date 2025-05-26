@@ -14,48 +14,53 @@
 
 <body>
 
+  <!-- navbar section starting -->
+
   {% include 'navbar.html' %}
 
- <!-- main section  -->
+  <!-- navbar section ending -->
+
+  <!-- main section  -->
 
 
   <div class="d-flex min-vh-100 flex-column justify-content-center align-content-center">
 
-
     {%if is_index%}
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{%static '/usermanagement/images/banners/4028484.jpg'%}" class="d-block w-100" alt="...">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{%static '/usermanagement/images/banners/4028484.jpg'%}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{%static '/usermanagement/images/banners/4028484.jpg'%}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{%static '/usermanagement/images/banners/4028484.jpg'%}" class="d-block w-100" alt="...">
+        </div>
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="{%static '/usermanagement/images/banners/4028484.jpg'%}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{%static '/usermanagement/images/banners/4028484.jpg'%}" class="d-block w-100" alt="...">
-    </div>
-  </div>
-</div>
-{%endif%}
+    {%endif%}
 
+    <!-- main content area starting -->
 
+    {% block content %}
 
- {% block content %}
-
-
-
-
-
- 
     {% endblock %}
 
+    <!-- main content area end -->
+
   </div>
-   
-<!-- main section end -->
+
+  <!-- main section end -->
+
+  <!-- footer section starting -->
 
   {% include 'footer.html' %}
 
-  <script src="{% static 'usermanagement/js/script.js' %}"></script>
+
+  <!-- footer section ending -->
+
+  <script src="{% static 'usermanagement/js/script.js' %}">  </script>
 </body>
 
 </html>

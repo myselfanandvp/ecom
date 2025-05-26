@@ -1,5 +1,5 @@
 from django.contrib import admin
+from .models import Products
 # Register your models here.
-from .models import Customuser
 
-admin.site.register(Customuser)
+admin.site.register(Products)
