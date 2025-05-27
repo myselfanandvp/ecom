@@ -1,31 +1,64 @@
-# 🚀 ecom
+# 🛒 Django E-Commerce Product Manager
 
-**A sleek Django web application with user authentication** — featuring login, logout, a welcoming landing page, and a secure home page for authenticated users.
+![Python](https://img.shields.io/badge/Python-3.10-blue.svg)
+![Django](https://img.shields.io/badge/Django-4.x-success.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+
+> A minimal Django-based product management system for small-scale e-commerce applications. Easily create, update, delete, and list products with image upload support and a session-based "Recently Edited" product tracker.
 
 ---
 
 ## ✨ Features
 
-- 🔐 User Login & Logout  
-- 🏠 Home Page (accessible only to logged-in users)  
-- 🌐 Landing Page (publicly accessible)  
-- ⚡ Simple, clean UI (easy to customize!)  
+- 🔒 User authentication (login required for all actions)
+- 🖼️ Upload product images
+- ✍️ Create, edit, and delete products
+- 🧾 View all products in a styled list
+- 🧠 Tracks 3 recently edited products using session
+- 💬 Form validation with error messages
+- 💅 Responsive UI using Bootstrap + MDB
+- ♻️ Image deletion on product removal
+- 🧼 Clean UX with CSRF protection and `never_cache`
 
 ---
 
-## 🛠️ Tech Stack & Requirements
+## 🖼️ Demo Preview
 
-- Python 3.x  
-- Django 4.x (or your preferred version)  
-- (Add any other dependencies you use)
+| Product List | Edit Product | Create Product |
+|--------------|--------------|----------------|
+| ![List](static/screenshots/product_list.png) | ![Edit](static/screenshots/edit_product.png) | ![Create](static/screenshots/create_product.png) |
 
 ---
 
-## 🚀 Getting Started
+## 🛠 Tech Stack
 
-Follow these steps to run the project locally:
+| Layer     | Tech                                    |
+|-----------|-----------------------------------------|
+| Backend   | Django (Python)                         |
+| Frontend  | Bootstrap 5 + MDB (Material Design)     |
+| Database  | SQLite (Django default)                 |
+| Forms     | Django ModelForm                        |
+| Media     | Django `ImageField` & `MEDIA_ROOT`      |
 
-### 1. Clone the repository
+---
+
+## 📁 Project Structure
+
 ```bash
-git clone https://github.com/myselfanandvp/ecom.git
-cd ecom
+ecommerce_project/
+├── products/
+│   ├── templates/
+│   │   ├── product_create.html
+│   │   ├── product_edit.html
+│   │   └── productlist.html
+│   ├── models.py        # Products model
+│   ├── forms.py         # ProductForm (with field hiding if needed)
+│   ├── views.py         # All CRUD views + recent edit logic
+│   └── urls.py
+├── media/               # Uploaded product images
+├── static/              # Static files (MDB, Bootstrap)
+├── templates/
+│   └── index.html       # Base template
+├── manage.py
+└── db.sqlite3
