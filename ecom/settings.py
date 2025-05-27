@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usermanagement.apps.UsermanagementConfig',
-    'products.apps.ProductsConfig'
+    'products.apps.ProductsConfig',
+    'channels',
   
 ]
 

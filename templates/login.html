@@ -25,7 +25,9 @@
     <!-- Submit button -->
     <button type="submit" data-mdb-button-init data-mdb-ripple-init
       class="w-100 btn btn-primary btn-block mb-4">Login</button>
-
+      {%if error%}
+      <p class="alert alert-danger">{{error}}</p>
+      {%endif%}
     <!-- Register buttons -->
     <div class="text-center">
       <p>Not a member? <a href="{% url 'signuppage'%}">Register</a></p>

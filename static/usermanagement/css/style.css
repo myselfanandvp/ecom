@@ -33,4 +33,32 @@
 /* footer end */
 
 
+/* product page */
+
+
+/* product buttons */
+
+#buy-btn{
+    background-color: green;
+    color: white;
+    transition: all 0.50s;
+}
+
+#buy-btn:hover{
+    background-color: rgb(5, 105, 5);
+}
+
+
+#edit-btn{
+    background-color: yellow;
+    transition: all 0.50s;
+
+}
+
+#edit-btn:hover{
+    background-color: rgb(211, 211, 12);
+}
+
+/* product button end */
+
 

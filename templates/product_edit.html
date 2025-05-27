@@ -12,6 +12,7 @@
 
         <!-- input section -->
         {%for fields in editform %}
+        
         <div data-mdb-input-init class="form-outline mb-4">
             {{fields}}
             {{fields.label_tag}}
@@ -21,11 +22,10 @@
         </div>
 
         {%endfor%}
-        <div class="form-control">
-            Preview Image:
+    
+            Current Image:
             <img src="{{editform.instance.image.url}}" class="img-fluid" width="100" alt="">
-        </div>
-
+       
         <!-- input section end -->
 
         <!-- Submit button -->
