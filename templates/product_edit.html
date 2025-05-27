@@ -5,7 +5,7 @@
 
 
 <div class="row justify-content-center align-content-center">
-    <p class="h4 text-center">Edit  Product</p>
+    <p class="h4 text-center">Edit Product</p>
     <form method="post" class="col-10  col-lg-6" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -19,12 +19,18 @@
             <div class="alert alert-danger" role="alert">{{fields.errors}}</div>
             {%endif%}
         </div>
+
         {%endfor%}
+        <div class="form-control">
+            Preview Image:
+            <img src="{{editform.instance.image.url}}" class="img-fluid" width="100" alt="">
+        </div>
+
         <!-- input section end -->
 
         <!-- Submit button -->
         <button type="submit" data-mdb-button-init data-mdb-ripple-init
-            class="w-100 btn btn-primary btn-block mb-4">Update</button>
+            class="w-100 btn btn-primary btn-block my-4">Update</button>
     </form>
 
 </div>

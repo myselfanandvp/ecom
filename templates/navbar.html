@@ -30,6 +30,12 @@
         <li class="nav-item">
           <span class="nav-link text-white h6">Logged in as: {{ user.email }}</span>
         </li>
+
+        <li>
+          <img class="img-thumbnail rounded-5"  width="60" src="{{user.profile_img.url}}">
+        </li>
+
+       
         {%else%}
 
         <li class="nav-item">

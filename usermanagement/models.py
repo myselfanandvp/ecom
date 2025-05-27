@@ -36,6 +36,7 @@ class Customuser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     phonenumber = models.CharField(_('phone_number'), unique=True)
     user_name = models.CharField(_('username'), max_length=150, unique=True)
+    profile_img=models.ImageField(_("profile_image"),upload_to="profile_images/",blank=True,null=True)
     created_date = models.DateField(_('created_date'), default=timezone.now)
     is_staff = models.BooleanField(_('is_staff'), default=False)
     is_active = models.BooleanField(_('is_active'), default=True)
