@@ -1,9 +1,12 @@
 {%load static%}
 
-<nav class="navbar navbar-expand-lg navbar-dark nav-custom-bg ">
+<nav class="navbar navbar-expand-lg navbar-dark nav-custom-bg">
   <div class="container-fluid px-2">
 
-    <a class="navbar-brand" href="{%url 'indexpage' %}">Brand Name</a>
+    <a class="navbar-brand" href="{%url 'indexpage' %}">Ecom 
+        <img src="{%static 'usermanagement/images/vecteezy_shopping-bag-icon-on-transparent-background_55779575.png' %}" width="100" >
+    </a>
+  
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,6 +17,13 @@
 
 
         {% if user.is_authenticated %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'createproduct'%}"><button class="btn btn-warning">Create Product</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'productlist'%}"><button class="btn btn-success">List Product</button></a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{%url 'logout'%}"><button type="button" class="btn btn-danger">LogOut</button></a>
         </li>
