@@ -5,22 +5,23 @@ from django.contrib.auth.decorators import login_required
 from .models import Products
 import os
 from django.conf import settings
+from django.views.decorators.cache import never_cache
 # Create your views here.
 
-
+@never_cache
 @login_required
 def product_create(request):
-    if request.POST:
+    if request.method == "POST":
         newproduct = ProductForm(request.POST, request.FILES)
         if newproduct.is_valid():
             newproduct.save()
             return redirect("productlist")
         print(newproduct.errors)
-        return render(request, 'product_create.html', {'productform': ProductForm(request.POST)})
+        return render(request, 'product_create.html', {'productform': newproduct})
 
-    return render(request, 'product_create.html', {'productform': ProductForm})
+    return render(request, 'product_create.html', {'productform': ProductForm()})
 
-
+@never_cache
 @login_required
 def product_list(request):
     products = Products.objects.all()
@@ -28,7 +29,7 @@ def product_list(request):
     recentedited = Products.objects.filter(id__in=recent_edit)
     return render(request, 'productlist.html', {'products': products, 'recent_edited': recentedited})
 
-
+@never_cache
 @login_required
 def editproduct(request, product_id):
     product = get_object_or_404(Products, id=product_id)

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control, never_cache
 # Create your views here.
 
-
+@never_cache
 def indexpage(request):
     return render(request, "index.html", {"is_index": True})
 
