@@ -3,7 +3,7 @@ from .forms import SignupForm, Loginform
 from .models import Customuser
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.cache import cache_control, never_cache
+from django.views.decorators.cache import never_cache
 # Create your views here.
 
 @never_cache
