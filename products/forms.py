@@ -4,7 +4,7 @@ from .models import Products
 
 class ProductForm(forms.ModelForm):
 
-    CATEGORY_CHOICES = [('phone', 'Phone'),('books', 'Books'),('clothing', 'Clothing')  ]
+    CATEGORY_CHOICES = [('phone','Phone'),('books', 'Books'),('clothing', 'Clothing')  ]
 
     name = forms.CharField(
         required=True,

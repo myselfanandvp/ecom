@@ -8,11 +8,13 @@ from django.views.decorators.cache import cache_control, never_cache
 
 @never_cache
 def indexpage(request):
-    return render(request, "index.html", {"is_index": True})
+    title="Index page"
+    return render(request, "index.html", {"is_index": True,'title':title})
 
 
 @never_cache
 def loginpage(request):
+    title="Login Page"
     if request.user.is_authenticated:
         return redirect("productlist")
 
@@ -38,11 +40,12 @@ def loginpage(request):
         else:
             return render(request, 'login.html', {'loginform': Loginform(request)})
 
-    return render(request, 'login.html', {'loginform': Loginform()})
+    return render(request, 'login.html', {'loginform': Loginform(),"title":title})
 
 
 @never_cache
 def signup_page(request):
+    title="Signup"
     if request.user.is_authenticated:
         return redirect('productlist')
 
@@ -57,7 +60,7 @@ def signup_page(request):
             return render(request, 'signup.html', {'form': SignupForm(request.POST)})
 
     form = SignupForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'signup.html', {'form': form,"title":title})
 
 
 @login_required
@@ -65,3 +68,6 @@ def logout_page(request):
     logout(request)
     request.session.flush()
     return redirect("loginpage")
+
+
+

@@ -17,6 +17,9 @@ class SignupForm(UserCreationForm):
     user_name = forms.CharField(max_length=250, widget=forms.TextInput(
         attrs={'class': "form-control", 'placeholder': "Enter your username"}), required=True, label="User Name"
     )
+    profile_img = forms.ImageField(
+        widget=forms.ClearableFileInput(attrs={'class': 'form-control', 'placeholder': "Upload your profile image"}) ,label="Profile Photo" ,required=True  )
+    
     password1 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={"class": "form-control", "placeholder": "Enter your password"}),

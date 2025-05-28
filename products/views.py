@@ -7,6 +7,7 @@ import os
 from django.conf import settings
 from django.views.decorators.cache import never_cache
 # Create your views here.
+titles=['Create Product','Product List','Update Product']
 
 @never_cache
 @login_required
@@ -19,7 +20,7 @@ def product_create(request):
         print(newproduct.errors)
         return render(request, 'product_create.html', {'productform': newproduct})
 
-    return render(request, 'product_create.html', {'productform': ProductForm()})
+    return render(request, 'product_create.html', {'productform': ProductForm(),'title':titles[0]})
 
 @never_cache
 @login_required
@@ -27,7 +28,7 @@ def product_list(request):
     products = Products.objects.all()
     recent_edit = request.session.get('recent_edit', [])
     recentedited = Products.objects.filter(id__in=recent_edit)
-    return render(request, 'productlist.html', {'products': products, 'recent_edited': recentedited})
+    return render(request, 'productlist.html', {'products': products, 'recent_edited': recentedited,'title':titles[1]})
 
 @never_cache
 @login_required
@@ -52,7 +53,7 @@ def editproduct(request, product_id):
 
     form = ProductForm(instance=product)
 
-    return render(request, 'product_edit.html', {'editform': form})
+    return render(request, 'product_edit.html', {'editform': form,'title':titles[2]})
 
 
 @login_required
