@@ -1,5 +1,7 @@
 {%load static%}
 
+<!-- NavBar -->
+ 
 <nav class="navbar navbar-expand-lg navbar-dark nav-custom-bg">
   <div class="container-fluid px-2">
 
@@ -13,7 +15,7 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto d-flex justify-content-around  align-items-center">
+      <ul class="navbar-nav mr-auto d-flex justify-content-around align-items-end">
 
 
         {% if user.is_authenticated %}
@@ -32,7 +34,7 @@
         </li>
 
         <li>
-          <img class="img-thumbnail rounded-5"  width="60" src="{{user.profile_img.url}}">
+          <img class="img-rounded rounded-2"  width="50"  src="{{user.profile_img.url}}">
         </li>
 
        
@@ -54,3 +56,4 @@
   </div>
 
 </nav>
+
