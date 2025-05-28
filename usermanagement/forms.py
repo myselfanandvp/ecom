@@ -37,7 +37,7 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = Customuser
         fields = ['email', 'user_name',
-                  'phonenumber', 'password1', 'password2']
+                  'phonenumber', 'password1', 'password2','profile_img']
 
     def clean(self):
         clean_data = super().clean()
@@ -47,8 +47,11 @@ class SignupForm(UserCreationForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError(
                 "The two password fields didn't match.")
-
         return clean_data
+            
+    
+
+        
 
 
 class Loginform(forms.Form):

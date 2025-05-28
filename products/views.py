@@ -59,9 +59,10 @@ def editproduct(request, product_id):
 @login_required
 def delete_product(request, product_id):
     obj = get_object_or_404(Products, id=product_id)
-    if obj.image:
-        image_path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
-        if os.path.exists(image_path):
-            os.remove(image_path)
-    obj.delete()
+    if request.method=="POST":
+        if obj.image:
+            image_path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
+            if os.path.exists(image_path):
+                os.remove(image_path)
+        obj.delete()
     return redirect("productlist")

@@ -4,9 +4,10 @@
 {%block content%}
 
 {%if recent_edited%}
-<div class="row text-black gap-1  justify-content-evenly text-center align-content-center" style="background-color: rgba(184, 181, 181, 0.534);">
-<p class="h3">Recent view</p>
-{%for product in recent_edited%}
+<div class="row text-black gap-1  justify-content-evenly text-center align-content-center"
+  style="background-color: rgba(184, 181, 181, 0.534);">
+  <p class="h3">Recent view</p>
+  {%for product in recent_edited%}
   <div class="col-3">
     <img src="{{product.image.url}}" alt="" style="width: 80px; border: none; border-radius:5px;">
     <p class="h6">{{product.name}}</p>
@@ -19,7 +20,7 @@
 
 <div class="row py-3 justify-content-evenly align-items-center gap-2">
   {%for product in products%}
-  <div class="card text-center col-3"  style="width: 20rem;">
+  <div class="card text-center col-3" style="width: 20rem;">
 
     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
 
@@ -35,8 +36,10 @@
         <a href="#" class="btn  col-6" id="buy-btn">Buy</a>
         <a href="#" class="col-6 btn btn-primary">Cart</a>
         <a href="{%url 'editproducturl' product_id=product.id %}" class="col-6 btn" id="edit-btn">Edit</a>
-
-        <a href="{%url 'deleteproducturl' product_id=product.id %}" type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger col-6">Delete</a>
+        <form method="post" action="{%url 'deleteproducturl' product.id %}">
+          {%csrf_token%}
+          <button class="btn btn-danger" onclick="return confirm('Do you really want to delete?')" type="submit">Delete</button>
+        </form>
 
       </div>
 

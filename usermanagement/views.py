@@ -50,14 +50,14 @@ def signup_page(request):
         return redirect('productlist')
 
     if request.method == "POST":
-        form = SignupForm(request.POST)
+        form = SignupForm(request.POST,request.FILES)
 
         if form.is_valid():
             form.save()
             print("user created")
             return redirect("loginpage")
         else:
-            return render(request, 'signup.html', {'form': SignupForm(request.POST)})
+            return render(request, 'signup.html', {'form': form, "title": title})
 
     form = SignupForm()
     return render(request, 'signup.html', {'form': form,"title":title})
